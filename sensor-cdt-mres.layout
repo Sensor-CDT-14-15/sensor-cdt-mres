@@ -1,0 +1,69 @@
+#% Do not delete the line below; configure depends on this
+#  \DeclareLaTeXClass[sensor-cdt-mres]{Sensor CDT MRes}
+#  \DeclareCategory{Articles}
+# Input general definitions
+Input stdclass.inc
+
+Style College
+	LatexType Command
+	LatexName college
+	InPreamble 1
+	Align		Center
+	Alignpossible	Center
+	LabelSep	xx
+	LabelType	Static
+	LabelString	"College:"
+End
+
+Style Wordcount
+	LatexType Command
+	LatexName wordcount
+	Font
+		Color red
+	EndFont
+	InPreamble 1
+	Align		Center
+	Alignpossible	Center
+	LabelSep	xx
+	LabelType	Static
+	LabelString	"Word count:"
+End
+
+Style BeginFrontmatter
+	Margin	Dynamic
+	LatexType	Command
+	LatexName	frontmatter
+	Category	FrontMatter
+	KeepEmpty	1
+	ParSkip		0.4
+	Align		Block
+	LabelSep	xx
+	LabelType	Static
+	LabelString	"Begin frontmatter"
+	LabelFont
+	  Series	Bold
+	  Color		Green
+	EndFont
+End
+
+Style BeginMainmatter
+	CopyStyle	BeginFrontmatter
+	LatexName	mainmatter
+	LabelString	"Begin mainmatter"
+End
+
+Style Appendices
+	Margin	Dynamic
+	LatexType	Command
+	LatexName	appendix
+	KeepEmpty	1
+	ParSkip		0.4
+	Align		Block
+	LabelSep	xx
+	LabelType	Static
+	LabelString	"Appendices"
+	LabelFont
+	  Series	Bold
+	  Color		Green
+	EndFont
+End

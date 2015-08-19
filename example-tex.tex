@@ -1,0 +1,133 @@
+\documentclass{sensor-cdt-mres}
+\usepackage{amsmath,amsthm}
+\usepackage[backend=biber, citestyle=numeric-comp, style=nature]{biblatex}
+\addbibresource{example-references.bib}
+
+
+\title{Sensor CDT MRes Report}
+\author{A.\,N. Author}
+\college{Porterhouse College}
+\date{24 August 2015}
+\wordcount{2,500}
+
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{abstract}
+This document provides a brief overview of how to use the Sensor CDT MRes report \LaTeX template.
+In addition to the document class, you will need the TeX Gyre Termes, Myriad Pro, XITS Math and DejaVu Sans Mono typefaces installed in your system.
+It is important to define values for \texttt{\textbackslash title}, \texttt{\textbackslash author}, \texttt{\textbackslash college}, \texttt{\textbackslash date}, and \texttt{\textbackslash wordcount} in the document preamble.
+\end{abstract}
+
+\tableofcontents
+
+\noindent Just start typing the main text after the abstract and table of contents.
+Don't worry about setting any fonts of anything, this is done for you.
+
+\LaTeX provides environments for producing lists.
+We can create lists like
+\begin{enumerate}
+	\item the first item,
+	\item the second item,
+	\item the third item,
+\end{enumerate}
+by using the \texttt{enumerate} environment.
+Similarly, we can create lists like
+\begin{itemize}
+	\item the first item,
+	\item the second item,
+	\item the third item,
+\end{itemize}
+by using the \texttt{itemize} environment.
+
+After a while, we'll have finished the introduction and will want to move onto the next section.
+This can be achieved by using the \texttt{\textbackslash section} command.
+
+\section{A new section}
+Notice that the section heading has been automatically added to the table of contents with the correct page number.
+We can add subsections by using the \texttt{\textbackslash subsection} command.
+
+\subsection{On mathematics and tables}
+Again, the subsection heading (and page number) has been added to the table of contents automatically.
+
+We can now write some mathematics, first as a display equation, using the \texttt{equation} environment:
+\begin{equation}
+	A = \frac{∂θ}{∂t} + u · ∇θ = 0.
+\end{equation}
+We can also write mathematics inline, like \( x^2 + y^2 = z^2 \).
+If the equation should not be numbered, we should use the \texttt{equation*} environment.
+This naming scheme applies to many environments, such that the version suffixed with an asterisk has no number.
+
+Now we've moved onto the second column, without using any command.
+The typesetting engine will decide when it's best to switch to the next column, as well as determining where tables and figures should sit.
+
+As an example, we'll define a table just after this line in the source, although it won't necessarily appear just below in the typeset PDF.
+\begin{table}[h]
+	\centering
+	\caption{One-column table of repeat length of longer allele by age of onset class.}
+	\begin{tabular}{@{\vrule height 10.5pt depth4pt  width0pt}lccccc}
+	& \multicolumn5c{Repeat length} \\
+	\cline{2-6}
+	Age of onset / years & \it n & Mean & SD & Range & Median \\
+	\hline
+	Juvenile, 2–20 & 40 & 60.15 & 9.32 & 43–86 & 60 \\
+	Typical, 21–50 & 377 & 45.72 & 2.97 & 40–58 & 45 \\
+	Late, > 50 & 26 & 41.85 & 1.56 & 40–45 & 42 \\
+	\hline
+	\label{tab:one-column-table}
+	\end{tabular}
+\end{table}
+By giving the table a label, we can reference it automatically with \texttt{\textbackslash prettyref\{tab:one-column-table\}} to produce \prettyref{tab:one-column-table}.
+For tables, the use of the \texttt{table*} environment means that the table spans two columns, but is still numbered.
+
+
+\section{On figures}
+We can define figures in a similar way, with the asterisked version spanning two column.
+\begin{figure}
+	\includegraphics[width=8.7cm]{example-figure}
+	\caption{
+		LKB1 phosphorylates Thr-172 of AMPKα \textit{in vitro} and activates its kinase activity.
+	}
+	\label{fig:one-column-figure}
+\end{figure}
+By giving the figure a label, we can reference it automatically with \texttt{\textbackslash prettyref\{fig:one-column-figure\}} to produce \prettyref{fig:one-column-figure}.
+
+In addition, the \texttt{SCfigure} environment allows us to have a figure with the caption down the side.
+This is useful for figures that are larger than one column wide, but not quite large enough to span the whole page.
+\prettyref{fig:two-column-figure} demonstrates this.
+
+
+\begin{SCfigure*}
+	\includegraphics[width=11.4cm]{example-figure}
+	\caption{
+		LKB1 phosphorylates Thr-172 of AMPKα \textit{in vitro}
+		and activates its kinase activity.
+		This is a long caption that goes on and on to demonstrate how a figure with side caption would look.
+		This kind of figure environment is useful when a figure is too wide for one column, but not wide enough to span an entire page.
+	}
+\label{fig:two-column-figure}
+\end{SCfigure*}
+
+
+\section{On references}
+There are many ways of producing references in \LaTeX, with the two most popular being Bib\LaTeX and Bib\TeX.
+These are outside the scope of this document, but in both cases citations are added with the \texttt{\textbackslash cite} command, which must be given the key of the reference you want to cite.
+We can cite \cite{kadison1959}, \cite{anderson1981} and \cite{anderson1979} by using \texttt{\textbackslash cite\{kadison1959\}}, \texttt{\textbackslash cite\{anderson1981\}} and \texttt{\textbackslash cite\{anderson1979\}}.
+The bibliography can then be added to the end of the document by using the \texttt{\textbackslash printbibliography}, for Bib\LaTeX, or \texttt{\textbackslash bibliography}, for Bib\TeX, commands.
+
+\section{Appendices}
+To add appendices, use the \texttt{\textbackslash appendix} command, followed by \texttt{\textbackslash section} commands for each appendix.
+
+
+\printbibliography
+
+\appendix
+
+\section{Some supplemental material}
+Note that this page does not appear in the page count in the declaration and only has one column.
+
+\end{document}
