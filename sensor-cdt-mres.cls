@@ -301,4 +301,7 @@
 	\pagestyle{empty}
 	{\fontsize{14pt}{16pt}\selectfont \noindent \sffamily{\textbf{Appendices}}} \newline
 	\oldappendix
+	\titleformat{\section}{\sansbold\fontsize{7.9pt}{8.5pt}}{\Alph{section}}{0.5em}{}{}
+	\titleformat{\subsection}[runin]{\sanssemibold}{\Alph{section}.\arabic{subsection}}{0.5em}{}[.]
+	\titleformat{\subsubsection}[runin]{\sanssemibolditalic}{\Alph{section}.\arabic{subsection}.\arabic{subsubsection}}{0.5em}{}[.]
 }
